@@ -12,8 +12,13 @@ func apyCalculator()  error {
 	// Inputan dari user via keyboard 
 	fmt.Printf("\n==============================================================\n")
 	fmt.Printf("\nMasukkan total uang yang akan di investasikan: $")
-	fmt.Scan(&initialInvestment)
+	if _,err := fmt.Scan(&initialInvestment);err != nil || initialInvestment <= 0{
+		return fmt.Errorf("Investasi awal tidak valid: %v", err)
+	}
 	fmt.Printf("Masukkan APY Tahunan anda (dalam persen): %%")
+	if _, err := fmt.Scan(&r); err != nil || r <=0 {
+		return fmt.Errorf("APY Tahunan tidak valid: %v", err)
+	}
 	fmt.Scan(&r)
 
 	// Rumus perhitungan daily APY dengan input dari user
@@ -39,6 +44,8 @@ func apyCalculator()  error {
 }
 
 func main() {
-	apyCalculator()
+	if err := apyCalculator(); err != nil {
+		fmt.Println("Error", err)
+	}
 	
 }
