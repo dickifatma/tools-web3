@@ -48,5 +48,3 @@ func main() {
 	}
 	
 }
-
-var tittle [2] string
