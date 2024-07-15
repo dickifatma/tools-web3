@@ -19,7 +19,6 @@ func apyCalculator()  error {
 	if _, err := fmt.Scan(&r); err != nil || r <=0 {
 		return fmt.Errorf("APY Tahunan tidak valid: %v", err)
 	}
-	fmt.Scan(&r)
 
 	// Rumus perhitungan daily APY dengan input dari user
 	convertPercentage  := r / 100
@@ -49,3 +48,5 @@ func main() {
 	}
 	
 }
+
+var tittle [2] string
